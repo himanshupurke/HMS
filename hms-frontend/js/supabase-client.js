@@ -4,8 +4,14 @@
  * No external dependencies — pure vanilla JS fetch().
  */
 const SupabaseClient = (() => {
-    const SUPABASE_URL = 'https://cpisbazpqkrdzxcacvpq.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwaXNiYXpwcWtyZHp4Y2FjdnBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzOTkwMTYsImV4cCI6MjA5MDk3NTAxNn0.XjanUAUC84zPzAErQ__Wz-jOyPJnh73e2tu5AM4RHaU';
+    // ── Configuration ──
+    const CONFIG = window.HMS_CONFIG || {
+        SUPABASE_URL: 'https://cpisbazpqkrdzxcacvpq.supabase.co',
+        SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNwaXNiYXpwcWtyZHp4Y2FjdnBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUzOTkwMTYsImV4cCI6MjA5MDk3NTAxNn0.XjanUAUC84zPzAErQ__Wz-jOyPJnh73e2tu5AM4RHaU'
+    };
+
+    const SUPABASE_URL = CONFIG.SUPABASE_URL;
+    const SUPABASE_ANON_KEY = CONFIG.SUPABASE_ANON_KEY;
     const REST_URL = `${SUPABASE_URL}/rest/v1`;
 
     // Default tenant ID (City General Hospital)
